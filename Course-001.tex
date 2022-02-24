@@ -1,0 +1,174 @@
+\documentclass[UTF8]{article}
+
+\usepackage{CTEX}
+\begin{document}  
+
+\section{集合初步}
+
+\subsection{集合的基本概念:}
+
+集合：指具有某种特定性质的具体的或抽象的对象汇总而成的集体。我们将构成集合的这些对象称为该集合的元素。
+
+\subsubsection{Example I:}
+$S = \{1, 2, 3\}$ 表示S是由1， 2， 3三个数字构成的集合\\
+
+全体自然数构成的集合 $N = \{0, 1, 2, 3, ...\}$\\
+
+全体整数构成的集合 $Z = \{-\infty ...  -1, 0, 1,  ... +\infty \}$ \\
+
+全体有理数构成的集合 $Q$\\
+
+全体实数构成的集合 $R$\\
+
+通常使用大写字母$S, A, B$等表示一个集合，使用小写字母表示集合中的元素。若$x$是集合$S$中的元素，称$x$属于$S$，记作$x \in S$。若$y$不是集合S中的元素，称$y$不属于$S$，记作$y \notin S$。
+
+
+在集合中，任意两个元素都不相同，即每个元素只能出现一次。
+
+\subsection{集合间的关系:}
+
+\subsubsection{子集:}
+
+设$S, T$是两个集合，如果集合$S$中的所有元素都属于集合$T(\forall x \in S, x \in T)$，称$S$是$T$的子集，记作$S\subseteq T$;特别的，如果存在集合$T$中的元素$x$，且$x$不属于$S(\exists x \in T, x\notin S)$，我们称$S$是$T$的真子集，记作$S \subset T$。
+
+\subsubsection{空集:}
+
+空集是一类特殊的集合，空集内不包含任何元素，例如$\{x|x^2 + 1 = 0, x \in N \}$就是一个空集。我们认为空集是任何一个集合的子集，同时也是任意非空集合的真子集。
+
+\subsubsection{集合的交与并:}
+
+对于集合$A$与集合$B$\\
+
+定义$A$与$B$的交集为：$A \cap B = \{x | x\in A \quad and \quad x\in B\}$\\
+ 
+定义$A$与$B$的并集为：$A \cup B = \{x | x\in A \quad or \quad x\in B\}$
+
+\subsubsection{全集与补集:}
+
+一般的，如果一个集合中包含我们研究问题中涉及的所有元素，我们称这个集合为全集，通常记作$U$。\\
+
+对于集合$U$的子集$A$，定义集合$A$相对于全集$U$的补集：$A^{'} = \{x|x\in U \quad and \quad x\notin A\}$。
+
+\subsection{集合运算定律:}
+
+\subsubsection{交换律:}
+$$A \cap B = B \cap A, A\cup B = B\cup A$$
+
+\subsubsection{结合律:}
+$$A\cup(B\cup C) = (A\cup B)\cup C$$
+$$A\cap(B\cap C) = (A\cap B)\cap C$$
+
+\subsubsection{分配对偶律:}
+$$A\cap(B\cup C) = (A\cap B) \cup (A\cap C)$$
+$$A\cup(B\cap C) = (A\cup B) \cap (A\cup C)$$
+
+\subsection{容斥原理:}
+
+对于一个集合$A$，我们称其中的元素个数为集合的基数，记作$card(A)$。\\
+
+显然，有如下的等式:
+$$card(A \cup B) = card(A) + card(B) - card(A \cap B)$$
+$$card(A \cup B \cup C) = card(A) + card(B) + card(C) $$
+$$- card(A \cap B) - card(B \cap C) - card(C \cap A) + card(A \cap B \cap C)$$
+
+\subsubsection{例题:试求1$\sim$600中能被2或3整除的数字个数}
+
+定义集合$A = \{x|x\%2 = 0, 1 <= x <= 600\}, B = \{x|x\%3 = 0, 1 <= x <= 600\}$,显然$card(A) = 300, card(B) = 200$
+
+又有$A \cap B = \{x|x\%6 = 0, 1 <= x <= 600\}, card(A\cap B) = 100$
+
+于是$card(A\cup B) = card(A) + card(B) - card(A\cap B) = 400$，即为题目所求
+
+\subsection{思考题:}
+
+\subsubsection{$Question_1$:}
+
+给定一个包含5个元素的集合$S = \{x_1, x_2, ... , x_5\}$，求集合$S$的真子集有多少个？
+
+\subsubsection{$Question_2$:}
+
+试验证$De\cdot Morgan$定律：
+$$(A \cup B)^{'} = A^{'} \cap B^{'}$$
+$$(A \cap B)^{'} = A^{'} \cup B^{'}$$
+
+\section{函数与映射:}
+
+\subsection{映射的定义:}
+
+两个非空集合$X, Y$中存在对应关系$f$，而且对于集合$X$中的每一个元素$x$，$Y$中总有唯一的一个元素$y$与其对应，我们称这种对应关系为集合$X$到集合$Y$的映射，记作$f: X \mapsto Y$，其中$y$称作$x$在映射$f$下的像，记作：$y = f(x)$。$x$称为$y$关于映射$f$的原像。集合$X$中所有元素在$f$作用下的像的集合称为$f$的值域，记作$f(X)$\\
+
+对于从集合$X$到集合$Y$的映射$f: X \mapsto Y$，我们有：
+
+\subsubsection{满射:}
+
+$$\forall y \in Y, \exists x \in X, s.t. f(x) = y$$
+
+
+\subsubsection{单射:}
+
+$$\forall x_1, x_2 \in X (x_1\neq x_2), f(x_1) \neq f(x_2)$$
+
+\subsubsection{双射(一一映射):}
+
+映射$f$既是满射，又是单射时，称映射$f$是一个双射。
+
+\subsubsection{一些例子:}
+
+令集合$X$为全体自然数的集合，$Y = \{0, 1\}$，定义映射$$f : X\mapsto Y, f(x) = x\%2$$
+
+我们称映射$f$是$X\to Y$的一个满射。\\
+\\
+
+令集合$X = \{1, 2, 3, 4, 5\}$, 集合$Y$是全体有理数的集合，定义映射$$f:X\mapsto Y, f(x) = \frac{x}{6}$$
+
+我们称映射$f$是$X\to Y$的一个单射。\\
+\\
+
+令集合$X = \{1, 2, 3, 4, 5\}$, 集合$Y = \{3, 5, 7, 9, 11\}$, 定义映射$$f:X\mapsto Y, f(x) = 2x + 1$$
+
+我们称映射$f$是$X\to Y$的一个双射。\\
+
+
+\subsection{函数:}
+
+假设$X, Y$是非空的数集，如果按照某种确定的对应关系$f$，使得对于集合$X$中的任意一个数x，在集合$Y$中都有唯一确定的数与之对应，那么就称映射$f:X\mapsto Y$是从集合$X$ 到集合$Y$的一个函数，记作$y = f(x), x \in X$.\\
+
+在函数$x$称作自变量，$y$称作$x$的函数；集合$X$称作函数的定义域,与$x$对应的$y$叫做函数值(因变量)，所有函数值构成的集合$\{f(x)|x\in X\}$称作函数的值域，$f$叫做对应法则。定义域，值域以及对应法则称为函数的三要素。
+
+\subsubsection{函数图像:}
+
+设函数$y = f(x),x\in D$,在平面直角坐标系中，我们将有序数对$(x, f(x))$视作一个平面上的点，那么点集$\{(x, f(x)) | x \in D\}$所构成的图形便称为函数$y = f(x),x\in D$的函数图像。
+
+
+
+\subsubsection{基本的函数性质:}
+
+对于函数$y = f(x), x\in D$,有如下几种基本特性：
+
+单调性：对于$D$上的一个子集$I$, 当且仅当:\\
+$\forall x_1, x_2 \in I, x_1 < x_2 \rightarrow f(x_1) < f(x_2)$,我们称函数$f$在$I$上单调递增；\\
+$\forall x_1, x_2 \in I, x_1 < x_2 \rightarrow f(x_1) > f(x_2)$,我们称函数$f$在$I$上单调递减。\\
+
+奇偶性：对于$\forall x \in D, f(x) = f(-x)$，称函数$y = f(x)$为偶函数；对于$\forall x \in D, -f(x) = f(-x)$，称函数$y = f(x)$为奇函数。\\
+
+周期性：如果$\exists T, T > 0, s.t. \forall x \in D, f(x) = f(x + T)$，则称函数$f$是一个周期函数，$T$称作函数$f$的周期(通常指最小正周期)
+
+\subsubsection{一些常见的初等函数:}
+
+试求出下列初等函数的值域并绘出函数图像,分析其函数特性：
+
+一次函数：$f(x) : y = kx + b, k, b\in Z^{+}, x \in R$\\
+
+反比例函数：$f(x) : y = \frac{k}{x}, k\in R, x \in (-\infty, 0)\cup (0, \infty)$\\
+
+二次函数：$f(x) : y = ax^2 + bx + c, x\in R$\\
+
+指数函数：$f(x) : y = a^x, a > 0, x \in R$\\
+
+对数函数：$f(x) : y = log_a x, a > 0, x \in R^{+}$\\
+
+正弦函数：$f(x) : y = sin(x), x \in R$\\
+
+余弦函数：$f(x) : y = cos(x), x \in R$
+
+\end{document}

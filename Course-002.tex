@@ -1,0 +1,273 @@
+\documentclass[UTF8]{article}
+\usepackage{graphicx}
+\usepackage{ctex}
+\begin{document}
+
+\section{Review:}
+
+\subsection{Question I:}
+
+给定函数$f(x) : y = |x|, x \in R, g(x) : y = x^2 + 3x - 4, x \in R$,求两函数交点的坐标
+
+\subsection{Question II:}
+
+试证明$f(x) : y = x^2 + 5x + 3, x \in R$与$g(x) : y = 3x + 2, x \in R$有且仅有一个交点，并求出交点坐标\\
+
+\section{导数与切线方程:}
+
+
+\section{复合函数:}
+
+设$y$是$u$的函数$y = f(u)$, $u$是$x$的函数$u = g(x)$,如果$g(x)$的值全部或部分落在$f(x)$的定义域内,则$y$通过$u$成为$x$的函数,记作$y = f(g(x))$,称为由函数$y = f(u)$与$u = g(x)$复合而成的函数。
+
+\subsection{一些例子:}
+
+\begin{itemize}
+	\item $y = f(u) = \sqrt{u - 1}, u = g(x) = x^2 - 3$,得到$y$通过$u$得到关于$x$的复合函数$y = f(x) = \sqrt{x^2 - 4}$,其中$x$的定义域为$(-\infty, -2] \cup [2, +\infty)$,函数的值域为$R^{+}$
+
+	\item $y = f(u) = 3u^2 - 1, u = g(x) = -x + 2$,得到$y$通过$u$得到关于$x$的复合函数$y = f(x) = 3x^2 - 12x + 11$,其中$x$的定义域为$R$, 函数的值域为$[-1, +\infty)$
+\end{itemize}
+
+
+\subsection{Practice:}
+
+\begin{itemize}
+	\item 令$y = f(u) = e^u - 1, u \in R, u = g(x) = x^2 + 2x - 2, x \in R$,求$y$关于$x$的复合函数$y = f(g(x))$的显示方程，并求出该函数的定义域与值域.
+
+	\item 令$y = f(u) = \frac{1}{u}, u \in (-\infty, 0)\cup (0, +\infty), u = g(x) = log_2 x + 2, x \in (0, +\infty)$,求$y$关于$x$的复合函数$y = f(g(x))$的显示方程，并求出该函数的定义域与值域.
+\end{itemize}
+
+
+\section{向量:}
+
+数学中，向量一般指具有大小与方向的量，通常记作$\vec{u}, \vec{x}, ... $;一般的，我们可以在平面直角坐标系$XOY$中，将一个向量表示为从原点$O(0, 0)$指向点$A(x_A, y_A)$的箭头，记作向量
+$
+\overrightarrow{OA} = 
+\left(
+\begin{array}{l}
+x_A\\
+y_A
+\end{array}
+\right)
+$,更普遍的，从点$A(x_A, y_A)$指向点$B(x_B, y_B)$的向量记为
+$
+\overrightarrow{AB} = 
+\left(
+\begin{array}{l}
+x_B - x_A\\
+y_B - y_A
+\end{array}
+\right)
+$
+
+
+\subsection{相关概念:}
+
+\begin{itemize}
+	\item 向量的模长:即为向量的长度,通常在二维平面内的向量$\vec{u} = (x, y)$,将其模长记为$|\vec{u}| = \sqrt{x^2 + y^2}$。需要注意的是向量与向量之间不能直接比较大小，不存在$\vec{u} > \vec{v}$的概念.
+	\item 共线向量:若向量$\vec{u}, \vec{v}$具有相同的方向，则称两个向量是共线的.
+	\item 零向量:模长为0的向量；特殊的，我们认为零向量没有方向，或者说零向量与任意向量方向相同(共线).
+	
+\end{itemize}
+
+
+\subsection{向量的运算:}
+
+\begin{itemize}
+	\item 向量的数乘:对于向量$\vec{u} = \left(
+\begin{array}{l}
+x_u\\
+y_u
+\end{array}
+\right), \alpha \in R$,有$\alpha\cdot\vec{u} = \left(
+\begin{array}{l}
+\alpha\cdot x_u\\
+\alpha\cdot y_u
+\end{array}
+\right)$,通常我们将向量的数乘理解为对该向量的伸缩变换，即不改变向量的方向，只改变其长度的变换，对于$\forall \alpha\in R, |\alpha\cdot \vec{u}| = |\alpha|\cdot |\vec{u}|$
+
+	\item 向量加法:对于向量
+$\vec{u}= 
+\left(
+\begin{array}{l}
+x_u\\
+y_u
+\end{array}
+\right), 
+\vec{v}= 
+\left(
+\begin{array}{l}
+x_v\\
+y_v
+\end{array}
+\right)$, 有
+$\vec{u} + \vec{v} = 
+\left(
+\begin{array}{l}
+x_u + x_v\\
+y_u + y_v
+\end{array}
+\right)$;显然，对于向量加法与向量的数乘，满足交换律$\vec{u} + \vec{v} = \vec{v} + \vec{u}$与结合律：$\forall \alpha \in R, \alpha \cdot (\vec{u}+ \vec{v}) = \alpha\cdot\vec{u} + \alpha\cdot\vec{v}$;更普遍的，对于$\alpha, \beta \in R$,我们有$\alpha \cdot \vec{u} + \beta \cdot \vec{v} = 
+\left(
+\begin{array}{l}
+\alpha x_u + \beta x_v\\
+\alpha y_u + \beta y_v
+\end{array}
+\right)$,事实上，向量间的加法运算相当于两个向量所代表运动的叠加。
+
+	\item 向量的点积:对于二维平面中的向量$\vec{u} = \left(
+\begin{array}{l}
+x_u\\
+y_u
+\end{array}
+\right), \vec{v} = \left(
+\begin{array}{l}
+x_v\\
+y_v
+\end{array}
+\right)$,定义点积运算$\vec{u}\cdot\vec{v} = x_u\cdot x_v + y_u\cdot y_v$.
+
+事实上，向量$\vec{u}, \vec{v}$的点积运算相当于计算$\vec{u}$在向量$\vec{v}$上的投影的长度与向量$\vec{v}$的模长的乘积，即$\vec{u}\cdot\vec{v} = |\vec{u}|\cdot|\vec{v}|\cdot sin<\vec{u}, \vec{v}>$
+\end{itemize}
+
+
+\subsection{一些例子:}
+\begin{itemize}
+	\item 对于平面上的点$A(1, 2)$,设向量$\vec{a} = \overrightarrow{OA} = 
+\left(
+\begin{array}{l}
+1\\
+2
+\end{array}
+\right)$,则$2\cdot \vec{a} = 
+\left(
+\begin{array}{l}
+2\\
+4
+\end{array}
+\right)$,相当于将向量$\vec{a}$延长了1倍的长度;另外,$-1\cdot\vec{a} = -\vec{a}$称做向量$\vec{a}$的相反向量，模长与$\vec{a}$相同，方向相反。
+
+	\item 对于平面上的点$A(3, 1), B(0, 2)$,设向量$\vec{a} = \overrightarrow{OA} = 
+\left(
+\begin{array}{l}
+3\\
+1
+\end{array}
+\right), \vec{b} = \overrightarrow{OB} = 
+\left(
+\begin{array}{l}
+0\\
+2
+\end{array}
+\right), \vec{a} + \vec{b} = 
+\left(
+\begin{array}{l}
+3 + 0\\
+1 + 2
+\end{array}
+\right) = 
+\left(
+\begin{array}{l}
+3\\
+3
+\end{array}
+\right)$;
+
+\begin{figure}{}
+\centering\includegraphics[scale = 0.25]{vec_add.jpeg}
+\end{figure}
+\end{itemize}
+
+
+
+
+\begin{itemize}
+	\item 设$XOY$平面中的向量$$\vec{a} = 
+\left(
+\begin{array}{l}
+5\\
+2
+\end{array}
+\right),
+\vec{b} = 
+\left(
+\begin{array}{l}
+1\\
+4
+\end{array}
+\right)\to \vec{a}\cdot\vec{b} = 5\cdot 1 + 2\cdot 4 = 13
+$$
+
+$$\vec{a} = 
+\left(
+\begin{array}{l}
+2\\
+5
+\end{array}
+\right),
+\vec{b} = 
+\left(
+\begin{array}{l}
+3\\
+-3
+\end{array}
+\right)\to \vec{a}\cdot\vec{b} = 2\cdot 3 + 5\cdot (-3) = -9$$
+
+$$\vec{a} = 
+\left(
+\begin{array}{l}
+3\\
+-4
+\end{array}
+\right),
+\vec{b} = 
+\left(
+\begin{array}{l}
+12\\
+9
+\end{array}
+\right)\to \vec{a}\cdot\vec{b} = 3\cdot 12 + (-4)\cdot 9 = 0$$
+
+更一般的，对于向量$\vec{a}, \vec{b}$,令$\theta$表示$\vec{a}, \vec{b}$间的夹角,我们有:
+
+$$
+\left\{
+\begin{array}{l}
+\vec{a}\cdot\vec{b} > 0 \Rightarrow \theta < 90^{\circ}\\
+\vec{a}\cdot\vec{b} = 0 \Rightarrow \theta = 90^{\circ}\\
+\vec{a}\cdot\vec{b} < 0 \Rightarrow \theta > 90^{\circ}\\
+\end{array}
+\right.
+$$
+\end{itemize}
+
+\subsection{BrainStorm:}
+
+\begin{itemize}
+	\item 设向量
+$\vec{u} = 
+\left(
+\begin{array}{l}
+1\\
+2
+\end{array}
+\right), \vec{v} = 
+\left(
+\begin{array}{l}
+3\\
+1
+\end{array}
+\right)$,若向量$\vec{x} = \left(
+\begin{array}{l}
+6\\
+7
+\end{array}
+\right)$可以表示为$\vec{x} = \alpha\cdot\vec{u} + \beta\cdot\vec{v}$,试确定$\alpha, \beta$的值.
+	\item 考虑$XOY$平面上不重合的两点$A(x_A, y_A), B(x_B, y_B)$,记$\vec{a} = \overrightarrow{OA}, \vec{b} = \overrightarrow{OB}$,试证明对于$\forall  r \in [0, 1]$,向量$\vec{c} = r \cdot \vec{a} + (1 - r)\cdot \vec{b}$的终点$C$在线段$AB$上。
+	\item 设直线方程$l: Ax + By + C = 0$,求该直线的法向量(垂直于该直线的向量) 。
+	
+\end{itemize}
+
+
+
+\end{document}

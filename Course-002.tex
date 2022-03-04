@@ -15,7 +15,68 @@
 
 \section{导数与切线方程:}
 
+设函数$y = f(x), x\in D$在定义域上某个邻域$\delta \to 0, (x_0 - \delta, x_0 + \delta)$内可导,定义函数$f(x)$在$x = x_0$处的导数$f^{'}(x) = \lim_{\Delta x \to 0}\frac{f(x + \Delta x) - f(x)}{\Delta x}$
 
+我们不纠结于函数可导本身的定义，先考虑导数本身的含义：对于函数$y = f(x)$在$x = x_0$处的导数$f^{'}(x_0)$, 实际上代表着函数$f(x)$在$x = x_0$处的变化率。
+
+\subsection{简单函数的求导:}
+
+\begin{itemize}
+	\item 我们假设$s$表示路程,$v, t$分别表示速度与时间,我们将路程$s$视作时间$t$的函数$s = u(t) = v\cdot t$,容易得出在$t = t_0$处函数$u$关于时间$t$的导数为:
+
+	$$u^{'}(t_0) = \lim_{\Delta t \to 0}\frac{u(t_0 + \Delta t) - u(t_0)}{\Delta t}$$ 
+	$$= \lim_{\Delta t \to 0}\frac{v\cdot (t_0 + \Delta t) - v\cdot t_0}{\Delta t}$$
+	$$= \lim_{\Delta t \to 0}\frac{v \cdot \Delta t}{\Delta t} = v$$
+
+	显然距离$s$关于时间$t$的变化率就是实时速度$v$;\\
+
+	\item 设有一次函数$y = f(x) = k\cdot x + b, x\in R$.易得$f(x)$在$\forall x_0\in R$处的导数值为$f(x_0) = k$.形式化的看，对于一次函数来说，函数的导数值为常数，也可以理解为函数图象的斜率。
+
+	\item 设函数$y = f(x) = x^2, x\in R$,对于$\forall x_0 \in R$, 函数在$x = x_0$处的导数为:
+	$$f^{'}(x_0) = \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}$$
+	$$= \lim_{\Delta x \to 0} \frac{{x_0}^2 + 2x_0 \Delta x + \Delta x^2 - {x_0}^2}{\Delta x}$$
+	$$= \lim_{\Delta x \to 0} 2x_0 + \Delta x = 2x_0$$
+
+	对于在定义域上处处可导的函数$f(x)$，我们记$f^{'}(x)$为原函数的导函数;对于$f(x) = x^2$,易得导函数$f^{'}(x) = 2x$.
+\end{itemize}
+
+\subsection{常见初等函数的导数:}
+
+\begin{itemize}
+	\item $f(x) = C$, $f^{'}(x) = 0$
+	\item $f(x) = kx + b$, $f^{'}(x) = k$
+	\item $f(x) = x^n$, $f^{'}(x) = n\cdot x^{n-1}$
+	\item $f(x) = a^x$, $f^{'}(x) = a^x\cdot ln a$
+	\item $f(x) = sinx$, $f^{'}(x) = cosx$
+	\item $f(x) = cosx$, $f^{'}(x) = sinx$
+\end{itemize}
+
+\subsection{求导法则:}
+设有函数$f(x), g(x), x\in D$,下简称函数$f, g$
+\begin{itemize}
+	\item $\forall k \in R, (k\cdot f)^{'} = k \cdot f^{'}$
+	\item $(f + g)^{'} = f^{'} + g^{'}$
+	\item 更普遍的，对于$\forall \alpha, \beta \in R, (\alpha\cdot f + \beta\cdot g)^{'} = \alpha\cdot f^{'} + \beta\cdot g^{'}$
+	\item $(f\cdot g)^{'} = f\cdot g^{'} + f^{'}\cdot g$
+\end{itemize}
+
+\subsection{Practice:}
+
+\begin{itemize}
+	\item $(ax^2 + bx + c)^{'} = $
+	\item $(\frac{1}{x})^{'} = $
+	\item $(\frac{x^2 + 1}{2x})^{'} = $
+\end{itemize}
+
+
+\subsection{切线方程:}
+
+对于函数$f(x), x\in D$,如果在$x = x_0$处可导，那么$f^{'}(x_0)$就是过点$(x_0, f(x_0))$处切线的斜率。过该点且斜率为$f^{'}(x_0)$的直线即为函数$f(x)$在$x = x_0$处的切线方程。
+
+\begin{itemize}
+	\item 设$y = f(x) = 3x^2 + 5x + 2$, 求点$(1, f(1))$处的切线方程
+	\item 设$y = f(x) = x + \frac{1}{x}$, 求点$(-2, f(-2))$处的切线方程
+\end{itemize}
 \section{复合函数:}
 
 设$y$是$u$的函数$y = f(u)$, $u$是$x$的函数$u = g(x)$,如果$g(x)$的值全部或部分落在$f(x)$的定义域内,则$y$通过$u$成为$x$的函数,记作$y = f(g(x))$,称为由函数$y = f(u)$与$u = g(x)$复合而成的函数。
@@ -29,6 +90,7 @@
 \end{itemize}
 
 
+
 \subsection{Practice:}
 
 \begin{itemize}
@@ -36,6 +98,7 @@
 
 	\item 令$y = f(u) = \frac{1}{u}, u \in (-\infty, 0)\cup (0, +\infty), u = g(x) = log_2 x + 2, x \in (0, +\infty)$,求$y$关于$x$的复合函数$y = f(g(x))$的显示方程，并求出该函数的定义域与值域.
 \end{itemize}
+
 
 
 \section{向量:}

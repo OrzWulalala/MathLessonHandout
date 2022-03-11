@@ -1,0 +1,230 @@
+\documentclass[UTF8]{article}
+
+\usepackage{CTEX}
+\begin{document} 
+
+\section{线性空间与基向量:}
+\subsection{线性空间:}
+
+设有空间$V$，如果在$V$中的向量$\vec{x}, \vec{y}$，有$\forall \vec{x}, \vec{y} \in V,$且满足:
+$$\forall k \in R, k\cdot \vec{x} \in V$$
+$$\forall \alpha,\beta \in R, \alpha\cdot \vec{x} + \beta\cdot\vec{y} \in V$$
+我们称空间$V$是线性空间。常见的$R, R^2, R^3$都是线性空间。
+
+下面我们以二维平面$R^2$为例讨论有关线性空间的内容。
+
+\subsection{线性空间的基} 
+在二维平面$R^2$中，建立平面直角坐标系$XOY$,在这个坐标系中，有两条向量是非常特殊的，记为$\vec{e}_i = 
+\left(
+\begin{array}{l}
+1 \\ 
+0
+\end{array}
+\right),
+\vec{e}_j = 
+\left(
+\begin{array}{l}
+0 \\ 
+1
+\end{array}
+\right)$,通常称这两条向量称为二维平面空间中的一对基向量;
+$XOY$坐标系中任意一条向量$\vec{u} = 
+\left(
+\begin{array}{l}
+x \\ 
+y
+\end{array}
+\right)
+$都可以看作$\vec{e}_i, \vec{e}_j$的线性组合:
+$$
+\left(
+\begin{array}{l}
+x \\ 
+y
+\end{array}
+\right) = x\cdot
+\left(
+\begin{array}{l}
+1 \\ 
+0
+\end{array}
+\right) + y\cdot
+\left(
+\begin{array}{l}
+0 \\ 
+1
+\end{array}
+\right)
+$$
+相对应的，我们称平面$XOY$是由向量$\vec{e}_i, \vec{e}_j$张成的空间，记$
+\left(
+\begin{array}{l}
+x \\ 
+y
+\end{array}
+\right)
+$为向量$\vec{u}$在这对基向量张成空间下的坐标。
+
+默认状态下，我们认为一个向量的坐标即为它在$XOY$坐标系中的坐标。
+
+\subsubsection{线性相关与线性无关:}
+对于一组向量(多于一个)$\vec{a}_1, \vec{a}_2, ..., \vec{a}_n$，如果存在不全为$0$的系数$k_1, k_2, ..., k_n$,使得$\sum_{i = 1}^{k}{k_i\cdot \vec{a}_i} = 0$,则称$\vec{a}_1, \vec{a}_2, ..., \vec{a}_n$是一组线性相关的向量;
+
+反之，若当且仅当$k_1 = k_2 = ... = k_n = 0$时，才能使$\sum_{i = 1}^{k}{k_i\cdot \vec{a}_i} = 0$成立，则称$\vec{a}_1, \vec{a}_2, ..., \vec{a}_n$是一组线性无关的向量。
+
+\begin{itemize}
+	\item 在$XOY$平面内，两个向量线性相关意味着两个向量是共线的。
+	\item 在$XOY$平面内,超过三个向量一定线性相关。
+\end{itemize}
+
+我们说任意一组线性无关的向量可以张成一个线性空间，向量组中向量的个数称为该线性空间的秩。
+
+\subsubsection{线性空间的基与向量坐标的计算:}
+
+\begin{itemize}
+	\item 设$XOY$中有向量$\vec{u} = 
+\left(
+\begin{array}{l}
+5 \\ 
+7
+\end{array}
+\right)
+$,显然在以$\vec{e}_i = 
+\left(
+\begin{array}{l}
+1 \\ 
+0
+\end{array}
+\right), \vec{e}_j = 
+\left(
+\begin{array}{l}
+0 \\ 
+1
+\end{array}
+\right)$的原坐标系中坐标为$
+\left(
+\begin{array}{l}
+5 \\ 
+7
+\end{array}
+\right)$.
+
+我们现在以另一组向量$\vec{e}_p = 
+\left(
+\begin{array}{l}
+1 \\ 
+1
+\end{array}
+\right), \vec{e}_q = 
+\left(
+\begin{array}{l}
+-1 \\ 
+1
+\end{array}
+\right)$为基张成另一个线性空间$V_1$,在这个新的线性空间中，向量$\vec{u}$的坐标就换成了另一对$
+\left(
+\begin{array}{l}
+u_x \\ 
+u_y
+\end{array}
+\right)
+$,且满足$u_x\cdot \vec{e}_0 + u_y\cdot \vec{e}_1 = \vec{u}
+$,即$$
+u_x\cdot \left(
+\begin{array}{l}
+1 \\ 
+1
+\end{array}
+\right) + u_y\cdot \left(
+\begin{array}{l}
+-1 \\ 
+1
+\end{array}
+\right) = \left(
+\begin{array}{l}
+5 \\ 
+7
+\end{array}
+\right)
+$$
+
+联立得到方程$$
+\left\{
+\begin{array}{l}
+u_x - u_y = 5 \\ 
+u_x + u_y = 7
+\end{array}
+\right.
+$$
+
+解方程得$$
+\left\{
+\begin{array}{l}
+u_x = 6 \\
+u_y = 1
+\end{array}
+\right.
+$$
+
+于是得到向量$\vec{u}$在线性空间$V_1$中的坐标为$
+\left(
+\begin{array}{l}
+6 \\
+1
+\end{array}
+\right)
+$
+
+	\item 
+类似的，对于在空间$V_1$中的向量$\vec{u} = 
+\left(
+\begin{array}{l}
+u_x \\ 
+u_y
+\end{array}
+\right)
+$,可以计算该向量在$XOY$平面中的坐标:
+$$ \vec{e}_0 = 
+\left(
+\begin{array}{l}
+1 \\ 
+1
+\end{array}
+\right),
+\vec{e}_1 = 
+\left(
+\begin{array}{l}
+-1 \\ 
+1
+\end{array}
+\right)$$
+
+于是可以计算得出在原坐标系中:
+$$\vec{u} = u_x\cdot \vec{e}_0 + u_y\cdot\vec{e}_1$$
+
+即$$\vec{u} = u_x\cdot \left(
+\begin{array}{l}
+1 \\ 
+1
+\end{array}
+\right) + u_y\cdot \left(
+\begin{array}{l}
+-1 \\ 
+1
+\end{array}
+\right) = 
+\left(
+\begin{array}{l}
+u_x - u_y \\ 
+u_x + u_y
+\end{array}
+\right)$$
+即为在$XOY$平面中的坐标
+
+\end{itemize}
+
+\section{线性变换:}
+
+
+
+\end{document} 

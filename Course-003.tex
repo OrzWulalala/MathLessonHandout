@@ -225,6 +225,345 @@ u_x + u_y
 
 \section{线性变换:}
 
+我们考虑二维向量空间$V$中的映射:$f:\vec{u}\rightarrow \vec{v}, \vec{u},\vec{v} \in V$:
+例如变换:
+$$\vec{u} = \left(
+\begin{array}{l}
+u_x \\ 
+u_y
+\end{array}
+\right), \vec{v} = f(\vec{u}) = \left(
+\begin{array}{l}
+2\cdot u_x - u_y \\ 
+-3\cdot u_x + 2\cdot u_y
+\end{array}
+\right)$$
 
+会将向量$\vec{u}_1 = \left(
+\begin{array}{l}
+2 \\ 
+5
+\end{array}
+\right)$变换为向量$\vec{v}_1 = \left(
+\begin{array}{l}
+-1 \\ 
+4
+\end{array}
+\right)$,
+
+将向量$\vec{u}_2 = \left(
+\begin{array}{l}
+3 \\ 
+1
+\end{array}
+\right)$变换为向量$\vec{v}_2 = \left(
+\begin{array}{l}
+5 \\ 
+-7
+\end{array}
+\right)$
+
+事实上,我们发现上述的线性变换的结果其实就是以$$\vec{e}_0 = \left(
+\begin{array}{l}
+2 \\ 
+-3
+\end{array}
+\right), \vec{e}_1 = \left(
+\begin{array}{l}
+-1 \\ 
+2
+\end{array}
+\right)$$为基底的线性空间中的向量$$\vec{u} = \left(
+\begin{array}{l}
+u_x \\ 
+u_y
+\end{array}
+\right)$$在以$$\vec{e}_i = \left(
+\begin{array}{l}
+1 \\ 
+0
+\end{array}
+\right), \vec{e}_j = \left(
+\begin{array}{l}
+0 \\ 
+1
+\end{array}
+\right)$$为基的$XOY$平面中的坐标;
+
+向量$\vec{u}$在$XOY$平面中的坐标为
+$$u_x\cdot \vec{e}_0 + u_y\cdot \vec{e}_1$$
+$$= u_x\cdot \left(
+\begin{array}{l}
+2 \\ 
+-3
+\end{array}
+\right) + u_y\cdot \left(
+\begin{array}{l}
+-1 \\ 
+2
+\end{array}
+\right) = \left(
+\begin{array}{l}
+2\cdot u_x - u_y \\ 
+-3\cdot u_x + 2\cdot u_y
+\end{array}
+\right)$$
+
+我们也可以认为上述过程是将$XOY$平面(以$\vec{e}_i, \vec{e}_j$为基)内的一个向量$\vec{u}$,保持其坐标不变，将$XOY$平面变换到以$\vec{e}_0, \vec{e}_1$为基的平面后，随之变换得到的向量$\vec{u}^{'}$在原来的$XOY$平面中的坐标;这样的变换是一种线性变换。
+
+在线性变换中，我们可以视为将线性空间$V$中的向量$\vec{u}$变换为另一个线性空间$V^1$中的向量$\vec{u}^{'}$,其本质是空间本身的变化，而向量$\vec{u}$在两个空间中的坐标是不变的。
+
+\section{矩阵与矩阵乘法:}
+
+\subsection{矩阵的定义:}
+定义：由$m \times n$个数字$a_{ij}$构成的$m$行$n$列的表称为一个$m$行$n$列的矩阵，一个$2\times 2$的矩阵可以表示为：
+$$\left(
+\begin{array}{l}
+a_{11}\quad a_{12} \\ 
+a_{21}\quad a_{22}
+\end{array}
+\right)$$
+
+我们常用大写字母$A_{m\times n}, B_{m\times n}, ...$表示一个$m$行$n$列的矩阵，其对应的小写字母加角标的方式表示矩阵中的元素。例如上述的矩阵就可以记作$A_{2\times 2} = \left(
+\begin{array}{l}
+a_{11}\quad a_{12} \\ 
+a_{21}\quad a_{22}
+\end{array}
+\right)$,其中的$a_{ij}$表示在第$i$行第$j$列的元素。
+
+
+\subsection{矩阵与线性变换:}
+对于$XOY$平面中的向量$\vec{u} = \left(
+\begin{array}{l}
+u_x \\ 
+u_y
+\end{array}
+\right)$,其坐标为$(u_x, u_y)$,关于平面中的基向量$\vec{e}_i, \vec{e}_j$的表示为$\vec{u} = u_x\cdot \vec{e}_i + u_y\cdot \vec{e}_j$,这类似于向量点积$(\vec{e}_i, \vec{e}_j)\cdot(u_x, u_y) = u_x\cdot \vec{e}_i + u_y\cdot \vec{e}_j$,这里我们只需将$\vec{e}_i, \vec{e}_j$视作列向量即可。
+
+我们将上述的$(\vec{e}_i, \vec{e}_j)$分别写成列向量的形式，即为$\left(
+\begin{array}{l}
+1\quad 0 \\ 
+0\quad 1
+\end{array}
+\right)$，那么我们有:$$(\vec{e}_i, \vec{e}_j)\cdot(u_x, u_y) = \left(
+\begin{array}{l}
+1\quad 0 \\ 
+0\quad 1
+\end{array}
+\right) \cdot \left(
+\begin{array}{l}
+u_x \\ 
+u_y
+\end{array}
+\right) = u_x\cdot \left(
+\begin{array}{l}
+1 \\ 
+0
+\end{array}
+\right) + u_y\cdot \left(
+\begin{array}{l}
+0 \\ 
+1
+\end{array}
+\right) = \left(
+\begin{array}{l}
+u_x \\ 
+u_y
+\end{array}
+\right)$$.
+
+如果我们换一组线性空间的基向量$\vec{e}_0 = \left(
+\begin{array}{l}
+1 \\ 
+2
+\end{array}
+\right), \vec{e}_1 = \left(
+\begin{array}{l}
+3 \\ 
+1
+\end{array}
+\right)$,那么在这组基向量张成的二维平面中，坐标为$(-1, 2)$的向量实际的坐标为:$$\left(
+\begin{array}{l}
+1\quad 3 \\ 
+2\quad 1
+\end{array}
+\right) \cdot \left(
+\begin{array}{l}
+-1 \\ 
+2
+\end{array}
+\right) = -1\cdot \left(
+\begin{array}{l}
+1 \\ 
+2
+\end{array}
+\right) + 2\cdot \left(
+\begin{array}{l}
+3 \\ 
+1
+\end{array}
+\right) = \left(
+\begin{array}{l}
+5 \\ 
+0
+\end{array}
+\right)$$
+不难发现，该变换将向量$\left(
+\begin{array}{l}
+1 \\ 
+2
+\end{array}
+\right)$变换为了另一个向量$\left(
+\begin{array}{l}
+5 \\ 
+0
+\end{array}
+\right)$,这里的$\left(
+\begin{array}{l}
+1\quad 3 \\ 
+2\quad 1
+\end{array}
+\right)$称为变换矩阵。
+
+\subsection{矩阵的基本运算与性质:}
+
+数乘:对于矩阵$A_{m\times n}$,有
+$$k\cdot A = 
+\left(
+\begin{array}{l}
+k\cdot a_{11} \quad k\cdot a_{12} \quad ... \quad k\cdot a_{1n} \\ 
+k\cdot a_{21} \quad k\cdot a_{22} \quad ... \quad k\cdot a_{2n} \\
+... \\
+k\cdot a_{m1} \quad k\cdot a_{m2} \quad ... \quad k\cdot a_{mn}
+\end{array}
+\right)$$
+
+矩阵加法:对于矩阵$A_{m\times n}, B_{m\times n}$,有
+$$C_{m\times n} = A_{m\times n} + B_{m\times n} = 
+\left(
+\begin{array}{l}
+a_{11} + b_{11} \quad a_{12} + b_{12} \quad ... \quad a_{1n} + b_{1n} \\ 
+a_{21} + b_{21} \quad a_{22} + b_{22} \quad ... \quad a_{2n} + b_{2n} \\
+... \\
+a_{m1} + b_{m1} \quad a_{m2} + b_{m2} \quad ... \quad a_{mn} + b_{mn}
+\end{array}
+\right)$$
+
+矩阵乘法:对于矩阵$A_{m\times n}, B_{n\times k}$,有
+$$C_{m\times k} = A_{m\times n} \times B_{n\times k},C_{ij} = \sum_{k = 1}^{n}{A_{ik}\cdot B_{kj}}$$
+
+\begin{itemize}
+	\item Tips:矩阵乘法满足结合律与结合律，但不一定满足交换律。
+\end{itemize}
+
+特别的，在线性变换中，我们可以将列向量$\vec{u}$视作一个2行1列的矩阵，也满足矩阵乘法的定义。
+
+
+\section{矩阵乘法与快速幂:}
+
+
+现在考虑一个经典的$fibonacci$数列问题:$f_1 = f_2 = 1, f_n = f_{n-1} + f_{n-1}$.求$f_n$?
+
+按照正常的思路考虑，我们可以写一个循环直接求出$f_n$的值,但是如果n的值非常大，循环会超时该怎么办呢?
+
+回到之前提到的线性变换:$f:\vec{x}\rightarrow \vec{b}, \vec{x}, \vec{b}\in R^2$,我们发现在二维平面中的线性变换相当于给向量$\vec{x}$左乘一个变换矩阵$A$,即$f:\vec{x} \rightarrow A \vec{x} = \vec{b}$。
+
+我们现在考虑向量$\vec{x} = \left(
+\begin{array}{l}
+f_n \\ 
+f_{n-1}
+\end{array}
+\right)$,如果存在变换矩阵$A$可以使得$A\vec{x} = \left(
+\begin{array}{l}
+f_{n+1} \\ 
+\ f_{n}
+\end{array}
+\right)$，由于我们已经知道$\vec{x}_0 = \left(
+\begin{array}{l}
+f_2 \\ 
+f_1
+\end{array}
+\right) = \left(
+\begin{array}{l}
+1 \\ 
+1
+\end{array}
+\right)$,那么就容易有
+$$A\cdot\vec{x}_0 = \left(
+\begin{array}{l}
+f_3 \\ 
+f_2
+\end{array}
+\right)
+$$
+$$A\cdot A\cdot \vec{x}_0 = \left(
+\begin{array}{l}
+f_4 \\ 
+f_3
+\end{array}
+\right)
+$$
+
+
+依次类推，我们有$$A^{n-2} \cdot \vec{x}_0 = \left(
+\begin{array}{l}
+f_n \\ 
+f_{n-1}
+\end{array}
+\right)$$
+
+我们只需要使用快速幂直接计算出$A^{n-2}$，再左乘到向量$\left(
+\begin{array}{l}
+f_2 \\ 
+f_1
+\end{array}
+\right)$上就能直接得到$\left(
+\begin{array}{l}
+\ f_n \\ 
+f_{n-1}
+\end{array}
+\right)$
+
+那么变换矩阵$A$该如何求呢？设矩阵$A = \left(
+\begin{array}{l}
+a_{11} \quad a_{12}\\ 
+a_{21} \quad a_{21}
+\end{array}
+\right),$我们容易列出等式
+$$\left(
+\begin{array}{l}
+a_{11} \quad a_{12}\\ 
+a_{21} \quad a_{21}
+\end{array}
+\right) \cdot \left(
+\begin{array}{l}
+\ f_i\\ 
+f_{i-1}
+\end{array}
+\right) = \left(
+\begin{array}{l}
+a_{11}\cdot f_i + a_{12} \cdot f_{i-1}\\ 
+a_{21}\cdot f_i + a_{22} \cdot f_{i-1}
+\end{array}
+\right) = \left(
+\begin{array}{l}
+f_{i+1}\\ 
+\ f_i
+\end{array}
+\right) = \left(
+\begin{array}{l}
+f_i+ f_{i-1}\\ 
+\quad f_i
+\end{array}
+\right)$$.
+
+
+
+直接使用待定系数法即可求出$A = \left(
+\begin{array}{l}
+1 \quad 1\\ 
+1 \quad 0
+\end{array}
+\right)$
 
 \end{document} 

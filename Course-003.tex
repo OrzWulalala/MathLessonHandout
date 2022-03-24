@@ -1,7 +1,25 @@
 \documentclass[UTF8]{article}
 
 \usepackage{CTEX}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{graphicx}
+
 \begin{document} 
+
+\lstset{
+	language=C++,
+    numberstyle= \tiny\monaco, 
+    keywordstyle= \color{ blue!70},
+    commentstyle= \color{red!50!green!50!blue!50}, 
+    frame=shadowbox, % 阴影效果
+    rulesepcolor= \color{ red!20!green!20!blue!20} ,
+    escapeinside=``, % 英文分号中可写入中文
+    breaklines=true,
+    tabsize = 4,
+    xleftmargin=2em, aboveskip=1em,
+    framexleftmargin=2em
+}
 
 \section{线性空间与基向量:}
 \subsection{线性空间:}
@@ -453,10 +471,25 @@ a_{m1} + b_{m1} \quad a_{m2} + b_{m2} \quad ... \quad a_{mn} + b_{mn}
 $$C_{m\times k} = A_{m\times n} \times B_{n\times k},C_{ij} = \sum_{k = 1}^{n}{A_{ik}\cdot B_{kj}}$$
 
 \begin{itemize}
+	\item $C_{ij}$的值实际上是矩阵$A$的第i行的行向量$(A_{i1}, A_{i2}, ..., A{in})$，与矩阵$B$的第j列的列向量$\left(
+\begin{array}{l}
+B_{1j} \\ 
+B_{2j} \\
+... \\
+B_{nj}
+\end{array}
+\right)$，两者的点积
 	\item Tips:矩阵乘法满足结合律与结合律，但不一定满足交换律。
 \end{itemize}
 
 特别的，在线性变换中，我们可以将列向量$\vec{u}$视作一个2行1列的矩阵，也满足矩阵乘法的定义。
+
+\subsection{思考题:}
+
+\begin{itemize}
+	\item 现有n阶方阵$A_{n\times n}, B_{n\times n}$.试验证$A\cdot B \neq B\cdot A$
+
+\end{itemize}
 
 
 \section{矩阵乘法与快速幂:}
@@ -557,8 +590,6 @@ f_i+ f_{i-1}\\
 \end{array}
 \right)$$.
 
-
-
 直接使用待定系数法即可求出$A = \left(
 \begin{array}{l}
 1 \quad 1\\ 
@@ -566,4 +597,63 @@ f_i+ f_{i-1}\\
 \end{array}
 \right)$
 
+结构体定义:
+
+\begin{lstlisting}
+struct Matrix{
+	int row, col, data[110][110];
+	Matrix(){
+		row = col = 0;
+		memset(data, 0, sizeof(data));
+	}
+	friend Matrix operator* (const Matrix &A, const Matrix &B){
+		Matrix ans;
+		ans.row = A.row, ans.col = B.col;
+		for (int i = 1; i <= ans.row; i ++)
+			for (int j = 1; j <= ans.col; j ++)
+				for (int k = 1; k <= A.col; k ++)
+					ans.data[i][j] += A.data[i][k] * B.data[k][j];
+		return ans;
+	}
+};
+\end{lstlisting}
+
+\newpage
+使用快速幂计算矩阵$A^n$
+
+\begin{lstlisting}
+Matrix pow(Matrix A, int k){
+	Matrix ans, base = A;
+	ans.row = A.row, ans.col = A.col;
+	for (int i = 1; i <= ans.row; i ++)
+		ans.data[i][i] = 1;
+	while (k){
+		if (k & 1)
+			ans = ans * base;
+		k >>= 1;
+		base = base * base;
+	}
+	return ans;
+}
+\end{lstlisting}
+
+主程序调用:
+\begin{lstlisting}
+int main(){
+	Matrix ans, A;
+	ans.row = 2, ans.col = 1;
+	ans.data[1][1] = ans.data[2][1] = 1;
+	A.row = A.col = 2;
+	A.data[1][1] = A.data[1][2] = A.data[2][1] = 1;
+	int n;
+	cin >> n;
+	if (n <= 2)
+		cout << 1;
+	else {
+		ans = pow(A, n-2) * ans;
+		cout << ans.data[1][1];
+	}
+	return 0;
+}	
+\end{lstlisting}
 \end{document} 
